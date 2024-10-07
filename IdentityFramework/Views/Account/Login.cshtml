@@ -1,0 +1,34 @@
+﻿@model LoginVM;
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_LayoutLR.cshtml";
+}
+
+<form asp-controller="Account" asp-action="Login" method="post" method="post">
+    <h3 class="text-muted mb-1 text-center" style="font-size:20px;">Login Existing Account</h3>
+    <hr />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mb-3">
+        <label class="mb-3" asp-for="Email"></label><span class="text-danger">*</span>
+        <input type="email" class="form-control" asp-for="Email" autocomplete="Email" placeholder="Enter Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="mb-3" asp-for="Password"></label><span class="text-danger">*</span>
+        <input type="password" class="form-control" asp-for="Password" placeholder="Enter Password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label>
+            <input type="checkbox" asp-for="RememberMe" /> Remember me
+        </label>
+    </div>
+    <div class="float-end">
+        <button type="submit" class="btn btn-primary m-2">logIn</button>
+    </div>
+</form>
+
+@section scripts{
+    <partial name="_ValidationScriptsPartial.cshtml" />
+}
